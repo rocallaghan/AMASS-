@@ -39,17 +39,20 @@ h2{
 	border: 1px solid grey;
 	float: left;
 	width:33%;
-	background: red;
 }
+
+#map {
+        height: 400px;
+        width: 100%;
+       }
+
 #middiv{
 	border: 1px solid grey;
 	display: inline-block;
 	width:33%;
-	background: blue;
 }
 #rightdiv{
 	border: 1px solid grey;
 	float: right;
 	width:33%;
-	background: green;
 }
