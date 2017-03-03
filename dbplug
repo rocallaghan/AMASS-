@@ -1,0 +1,29 @@
+<?php
+
+    // Prepare variables for database connection
+   
+    $dbusername = "rocallaghan";  // enter database username, I used "arduino" in step 2.2
+    $dbpassword = "P@ssw0rd";  // enter database password, I used "arduinotest" in step 2.2
+    $server = "amassdb.database.windows.net"; // IMPORTANT: if you are using XAMPP enter "localhost", but if you have an online website enter its address, ie."www.yourwebsite.com"
+
+    // Connect to your database
+
+    $dbconnect = mysql_connect($server, $dbusername, $dbpassword);
+    $dbselect = mysql_select_db("GPS",$dbconnect);
+	$conn = new mysqli($amassdb, $rocallaghan, $P@ssw0rd, $G);
+
+	// Check connection
+	if ($conn->connect_error)	
+	{
+    die("Connection failed: " . $conn->connect_error);
+	} 
+
+    // Prepare the SQL statement
+
+    $sql = "INSERT INTO coordinates (coordinates, time) VALUES ('x3y24', '1400')";    
+
+    // Execute SQL statement
+
+    mysql_query($sql);
+
+?>
