@@ -1,9 +1,9 @@
-
 #define CUSTOM_SETTINGS
 #define INCLUDE_ACCELEROMETER_SENSOR_SHIELD
 #define INCLUDE_GPS_SHIELD
 #define INCLUDE_SMS_SHIELD
-
+#define INCLUDE_INTERNET_SHIELD
+#define INCLUDE_TERMINAL_SHIELD
 
 /* Include 1Sheeld library. */
 #include <OneSheeld.h>
@@ -17,11 +17,16 @@ float lon ;
 char charlat [10];
 char charlon [10];
 char readings [80];
+char readings1 [80];
+char name = "http://richardmocallaghan.000webhostapp.com/firebaseTest.php?arduino_data=";
+HttpRequest request (name);
+
 
 void setup()
 {
   /* Start communication. */
   OneSheeld.begin();
+
   /* Set the LED pin as output. */
   pinMode(ledPin,OUTPUT);
 }
@@ -44,13 +49,21 @@ void loop()
 
       if (!isMessageSent)
       {
+       
         lat = GPS.getLatitude(); lon = GPS.getLongitude();
+        
         dtostrf(lat, 7, 3, charlat); dtostrf(lon, 7, 3, charlon);
         strcat(readings, "GPS Coordinates of your car : \n");
         strcat(readings, "latitude is : "); strcat (readings, charlat);
         strcat(readings, "\nLongitude is : "); strcat (readings, charlon);
+        strcat (name,charlon);
+        Internet.performGet(request);
         SMS.send("0863967689", readings);
+     
+        
+        
         isMessageSent = true;
+        
       }
       else
       {
@@ -64,6 +77,5 @@ void loop()
     digitalWrite(ledPin,LOW);
   }
 
-  /* Y axis maybe???? keeps glitching on phone and freaking out causing mis readings?? */
+} /* Y axis maybe???? keeps glitching on phone and freaking out causing mis readings?? */
  
-}
