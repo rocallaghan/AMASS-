@@ -16,13 +16,13 @@
 		</header>
 		<br><br>
 		<div>
-			<h2>PICTURE GOES HERE</h2>		
+			<img src="car_banner.jpg" alt="Car Banner">		
 		</div>
 		<br><br><br><br><br><br>
 		<div id="3columndiv">
 			<div id="leftdiv">
-				<h1 id="texttitle">Location of the car with Google Maps</h1>
-				<h2>This page will show the location of your car with the use of Google Maps.</h2>
+				<h1 id="texttitle">Location of vehicle with Google Maps</h1>
+				<h2>This page will show the location of your vehicle with the use of Google Maps.</h2>
 				<form action="map.php">
 					<input type="submit" value="Maps"/>
 				</form>

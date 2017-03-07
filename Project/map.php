@@ -15,13 +15,15 @@
 			</h1>
 		</header>
 	<h1>Google Maps Location</h1>
-	<h1 id="longitude"></h1>
-	<h1 id="latitude"></h1>
+	<div id="latAndLong">
+		<h1 id="mapLatitude"></h1>
+		<h1 id="mapLongitude"></h1>
+	</div>
 	
 	<div id="map"></div>
 
 	<br><br><br>
-		<form action="Mainpage.php">
+		<form action="MainPage.php">
 			<input type="submit" value="Home"/>
 		</form>
 	</body>
@@ -38,10 +40,12 @@
 			};
 		firebase.initializeApp(config);
 		
-		var dbRef1 = firebase.database().ref().child('longitude');
-		dbRef1.on('value', snap => longitude.innerText = snap.val());
-		var dbRef2 = firebase.database().ref().child('latitude');
-		dbRef2.on('value', snap => latitude.innerText = snap.val());
+
+		var dbRef2 = firebase.database().ref('LatTest').child('x1');
+		dbRef2.on('value', snap => mapLatitude.innerText = snap.val());
+		var dbRef1 = firebase.database().ref('LongTest').child('y1');
+		dbRef1.on('value', snap => mapLongitude.innerText = snap.val());
+		
 	</script>
 	
 	<script>
