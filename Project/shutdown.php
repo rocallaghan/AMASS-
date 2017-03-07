@@ -10,7 +10,7 @@
 		<header>
 			<h1 class="PageTitle">
 				<nav>
-					<a href="MainPage.php">Automobile Management & Security System</a>
+					<a href="index.php">Automobile Management & Security System</a>
 				</nav>
 			</h1>
 		</header>

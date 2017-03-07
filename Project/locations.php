@@ -10,7 +10,7 @@
 		<header>
 			<h1 class="PageTitle">
 				<nav>
-					<a href="MainPage.html">Automobile Management & Security System</a>
+					<a href="index.php">Automobile Management & Security System</a>
 				</nav>
 			</h1>
 		</header>
@@ -29,7 +29,7 @@
 				</tbody>
 			</table>
 		</div>
-		<form action="MainPage.php">
+		<form action="index.php">
 			<input type="submit" value="Home"/>
 		</form>
 	</body>
