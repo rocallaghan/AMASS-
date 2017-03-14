@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="main.css">
+		<title>Home</title>
+	</head>
+	<body class="body">
+		<header>
+			<h1 class="PageTitle">
+				<nav>
+					<a href="index.html">Automobile Management & Security System</a>
+				</nav>
+			</h1>
+		</header>
+		<br><br>
+		<div>
+			<img src="car_banner.jpg" alt="Car Banner" id="banner">
+			<div class="container">
+				<input id="txtEmail" type="email" placeholder="Email" style=""><br>
+				<input id="txtPassword" type="password" placeholder="Password" style=""><br>
+				<button id="btnLogin" class="btn btn-action" style="">Log in</button>
+				<button id="btnSignUp" class="btn btn-secondary" style="">Sign up</button>
+				<button id="btnLogout" class="btn btn-action hide" style="display: none;" action="index.html">Log out</button>
+			</div>
+		</div>
+		<br><br><br><br><br><br>
+		<div id="3columndiv">
+			<div id="leftdiv">
+				<h1 id="texttitle">Location of vehicle with Google Maps</h1>
+				<h2>This page will show the location of your vehicle with the use of Google Maps.</h2>
+				<form action="map.html">
+					<input type="submit" value="Maps"/>
+				</form>
+			</div>
+			<div id="middiv">
+				<h1 id="texttitle">Remote Shutdown</h1>
+				<h2>This page will let you shut down the car remotely.</h2>
+				<form action="shutdown.html">
+					<input type="submit" value="Shutdown"/>
+				</form>
+			</div>
+			<div id="rightdiv">
+				<h1 id="texttitle">Previous Locations</h1>
+				<h2>This page will show you all of the co ordinates of the previous locations of the car.</h2>
+				<form action="locations.html">
+					<input type="submit" value="Locations"/>
+				</form>
+			</div>
+		</div>
+		<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+	<script>
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyAqMwE4tGUKcAc4d0SnXNCG_Xex6kWI75A",
+		authDomain: "test-f3317.firebaseapp.com",
+		databaseURL: "https://test-f3317.firebaseio.com",
+		storageBucket: "test-f3317.appspot.com",
+		messagingSenderId: "354909114354"
+	};
+	firebase.initializeApp(config);
+		
+	const txtEmail = document.getElementById('txtEmail');
+	const txtPassword = document.getElementById('txtPassword');
+	const btnLogin = document.getElementById('btnLogin');
+	const btnSignUp = document.getElementById('btnSignUp');
+	const btnLogout = document.getElementById('btnLogout');
+	
+	btnLogin.addEventListener('click', e=> {
+		const email = txtEmail.value;
+		const pass = txtPassword.value;
+		const auth = firebase.auth();
+		const promise = auth.signInWithEmailAndPassword(email, pass);
+		promise.catch(e => console.log(e.message));
+	});
+	
+	btnSignUp.addEventListener('click', e => {
+		const email = txtEmail.value;
+		const pass = txtPassword.value;
+		const auth = firebase.auth();
+		const promise = auth.createUserWithEmailAndPassword(email, pass);
+		promise.catch(e => console.log(e.message));
+	});
+	
+	firebase.auth().onAuthStateChanged(firebaseUser => {
+		if(firebaseUser){
+			console.log(firebaseUser);
+			document.getElementById("btnLogout").style = "";
+			document.getElementById("txtEmail").style = "display: none;";
+			document.getElementById("txtPassword").style = "display: none;";
+			document.getElementById("btnLogin").style = "display: none;";
+			document.getElementById("btnSignUp").style = "display: none;";
+		} else {
+			console.log('not logged in');
+			document.getElementById("btnLogout").style = "display: none;";
+			document.getElementById("txtEmail").style = "";
+			document.getElementById("txtPassword").style = "";
+			document.getElementById("btnLogin").style = "";
+			document.getElementById("btnSignUp").style = "";
+		}
+	});
+	
+	btnLogout.addEventListener('click', e => {
+		firebase.auth().signOut();
+	});
+	</script>
+	</body>
+</html>

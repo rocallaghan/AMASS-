@@ -1,0 +1,99 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	/*background-color: #264739;*/
+}
+
+header, section, footer, aside, nav, article, hgroup{
+	display: block;
+}
+
+.PageTitle{
+	text-align: center;
+	border: 1px solid black;
+}
+
+.body{
+	text-align: center;
+	background-color: #4ab2f7;
+	width: 90%;
+	margin: 20px auto;
+}
+
+.container{
+	display: inline-block;
+	float: right;
+}
+
+h1{
+	font: bold 20px Tahoma;
+}
+
+h2{
+	font: bold 15px Tahoma;
+}
+
+#texttitle{
+	border: 1px grey ridge;
+}
+
+#topsection{
+	display: inline-block;
+}
+
+#3columndiv{
+	 
+}
+
+#leftdiv{
+	border: 1px solid grey;
+	float: left;
+	width:33%;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+#middiv{
+	border: 1px solid grey;
+	display: inline-block;
+	width:33%;
+}
+#rightdiv{
+	border: 1px solid grey;
+	float: right;
+	width: 33%;
+}
+
+#latAndLong{
+	display: inline-block;
+}
+#mapLongitude{
+	float: right;
+	width: 40%
+}
+
+#mapLatitude{
+	float: left;
+	width: 10%;
+}
+
+#x{
+	float: left;
+	display: inline-block;
+	width: 49%;
+	text-align: right;
+}
+
+#y{
+	float: right;
+	display: inline-block;
+	width: 49%;
+	text-align: left;
+}
+
+#locationList{
+	display: inline-block;
+}

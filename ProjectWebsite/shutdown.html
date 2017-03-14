@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Remote Shutdown</title>
+		<link rel="stylesheet" href="main.css">
+	</head>
+	
+	<body class="body">
+		<header>
+			<h1 class="PageTitle">
+				<nav>
+					<a href="index.html">Automobile Management & Security System</a>
+				</nav>
+			</h1>
+		</header>
+		<h1>Remote Shutdown</h1>
+		<br><br><br>		
+		<h2>Click below if you are sure that you want to shut down your car remotely.</h2>
+		<form action="ShutdownConfirm.html">
+			<input type="submit" onClick="submitClick()" value="Shutdown"/>
+		</form>
+	
+		<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+		<script>
+		  // Initialize Firebase
+		  var config = {
+			apiKey: "AIzaSyAqMwE4tGUKcAc4d0SnXNCG_Xex6kWI75A",
+			authDomain: "test-f3317.firebaseapp.com",
+			databaseURL: "https://test-f3317.firebaseio.com",
+			storageBucket: "test-f3317.appspot.com",
+			messagingSenderId: "354909114354"
+		  };
+		  firebase.initializeApp(config);
+		</script>
+		<script>
+			var database = firebase.database();
+			function submitClick(){
+				var firebaseRef = firebase.database().ref();
+				firebaseRef.child("ShutDown").set("0");
+			}
+		</script>
+	</body>
+</html>
