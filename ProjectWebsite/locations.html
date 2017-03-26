@@ -18,19 +18,11 @@
 		<h1>List of previous locations</h1>
 		<br><br><br>
 		<div id = locationList>
-			<table>
-				<thead>
-					<tr>
-						<td><b>X Loc</b></td>
-						<td><b>Y loc</b></td>
-					</tr>
-				</thead>
-				<tbody id="table_body">
-				</tbody>
-			</table>
+				<p id="xCoord"></p>
+				<p id="yCoord"></p>
 		</div>
 		<form action="index.html">
-			<input type="submit" value="Home"/>
+			<input class="button" type="submit" value="Home"/>
 		</form>
 	</body>
 	
@@ -39,38 +31,34 @@
 	// Initialize Firebase
 	var config = 
 	{
-		apiKey: "AIzaSyAqMwE4tGUKcAc4d0SnXNCG_Xex6kWI75A",
-		authDomain: "test-f3317.firebaseapp.com",
-		databaseURL: "https://test-f3317.firebaseio.com",
-		storageBucket: "test-f3317.appspot.com",
-		messagingSenderId: "354909114354"
+		apiKey: "AIzaSyACXXPBixE5ZHbHPxyxOKj8EDTdbD36jRk",
+		authDomain: "amassg9.firebaseapp.com",
+		databaseURL: "https://amassg9.firebaseio.com",
+		storageBucket: "amassg9.appspot.com",
+		messagingSenderId: "295374464329"
 	};
     firebase.initializeApp(config);
 	</script>
 	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 	<script>
-	  // Initialize Firebase
-	var config = 
-	{
-		apiKey: "AIzaSyAqMwE4tGUKcAc4d0SnXNCG_Xex6kWI75A",
-		authDomain: "test-f3317.firebaseapp.com",
-		databaseURL: "https://test-f3317.firebaseio.com",
-		storageBucket: "test-f3317.appspot.com",
-		messagingSenderId: "354909114354"
-	};
-	firebase.initializeApp(config);
-	</script>
-	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-	<script>
 	$(document).ready(function()
 	{
-		var rootRef = firebase.database().ref().child("Coords");
+		var x = " ";
+		var y = " ";
+		var rootRef = firebase.database().ref().child("x");
 		rootRef.on("child_added", snap => 
 		{
-			var x = snap.child("x").val();
-			var y = snap.child("y").val();
-			$("#table_body").append("<tr><td>" + x +"</td><td>" + y + "</td></tr>");
+			var x = snap.val();
+			$("#xCoord").append(x + " , " + "<br>");
 		});
+		
+		var rootRef = firebase.database().ref().child("y");
+		rootRef.on("child_added", snap => 
+		{
+			var y = snap.val();
+			$("#yCoord").append(y + "<br>");
+		});
+		
 	});
 	</script>
 </html>

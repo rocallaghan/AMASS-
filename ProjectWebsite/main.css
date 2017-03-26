@@ -1,7 +1,6 @@
 *{
 	margin: 0px;
 	padding: 0px;
-	/*background-color: #264739;*/
 }
 
 header, section, footer, aside, nav, article, hgroup{
@@ -10,11 +9,12 @@ header, section, footer, aside, nav, article, hgroup{
 
 .PageTitle{
 	text-align: center;
-	border: 1px solid black;
 }
 
 .body{
 	text-align: center;
+	background-image: url("background.jpg");
+	background-size:cover;
 	background-color: #4ab2f7;
 	width: 90%;
 	margin: 20px auto;
@@ -25,6 +25,32 @@ header, section, footer, aside, nav, article, hgroup{
 	float: right;
 }
 
+.btn{
+	display: inline-block;
+	float: left;
+}
+
+.button{
+    background-color: rgba(0,0,0,.5);
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	-webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+	border: 1px solid black;
+	border-radius: 10%;
+}
+
+.button:hover {
+    background-color: rgba(0,0,0,.5);
+    color: white;
+	border: 1px solid white;
+	border-radius: 50%;
+}
+
 h1{
 	font: bold 20px Tahoma;
 }
@@ -33,8 +59,24 @@ h2{
 	font: bold 15px Tahoma;
 }
 
+h3{
+	font: bold 30px Tahoma;
+}
+
+#locationList{
+	display: inline-block;
+}
+
+#xCoord{
+	float: left;
+}
+
+#yCoord{
+	float: right;
+}
+
 #texttitle{
-	border: 1px grey ridge;
+	
 }
 
 #topsection{
@@ -46,7 +88,6 @@ h2{
 }
 
 #leftdiv{
-	border: 1px solid grey;
 	float: left;
 	width:33%;
 }
@@ -57,12 +98,10 @@ h2{
 }
 
 #middiv{
-	border: 1px solid grey;
 	display: inline-block;
 	width:33%;
 }
 #rightdiv{
-	border: 1px solid grey;
 	float: right;
 	width: 33%;
 }
@@ -70,14 +109,18 @@ h2{
 #latAndLong{
 	display: inline-block;
 }
+
 #mapLongitude{
 	float: right;
 	width: 40%
 }
+#comma{
+	display: inline-block;
+}
 
 #mapLatitude{
 	float: left;
-	width: 10%;
+	width: 45%;
 }
 
 #x{

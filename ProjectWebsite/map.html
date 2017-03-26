@@ -16,39 +16,37 @@
 	<h1>Google Maps Location</h1>
 	<div id="latAndLong">
 		<h1 id="mapLatitude"></h1>
+		<h1 id="comma">,</h1>
 		<h1 id="mapLongitude"></h1>
 	</div>
 	<div id="map"></div>
 	<br><br><br>
 		<form action="index.html">
-			<input type="submit" value="Home"/>
+			<input class="button" type="submit" value="Home"/>
 		</form>
 	</body>
-	
 	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
 	<script>
 		// Initialize Firebase
 		var config =
 		{
-			apiKey: "AIzaSyAqMwE4tGUKcAc4d0SnXNCG_Xex6kWI75A",
-			authDomain: "test-f3317.firebaseapp.com",
-			databaseURL: "https://test-f3317.firebaseio.com",
-			storageBucket: "test-f3317.appspot.com",
-			messagingSenderId: "354909114354"
+			apiKey: "AIzaSyACXXPBixE5ZHbHPxyxOKj8EDTdbD36jRk",
+			authDomain: "amassg9.firebaseapp.com",
+			databaseURL: "https://amassg9.firebaseio.com",
+			storageBucket: "amassg9.appspot.com",
+			messagingSenderId: "295374464329"
 			};
 		firebase.initializeApp(config);
 		
 		var mapLat;
-		var dbRef2 = firebase.database().ref('latitude');
+		var dbRef2 = firebase.database().ref('recenty');
 		dbRef2.on('value', snap => mapLatitude.innerText = snap.val());
 		dbRef2.on('value', snap => mapLat = snap.val());
 		
 		var mapLong;
-		//var dbRef1 = firebase.database().ref('LongTest').child('y1')
-		var dbRef1 = firebase.database().ref('longitude');
+		var dbRef1 = firebase.database().ref('recentx');
 		dbRef1.on('value', snap => mapLongitude.innerText = snap.val());
 		dbRef1.on('value', snap => mapLong = snap.val());
-
 
 		function initMap() 
 		{
